@@ -1,0 +1,33 @@
+[versions]
+kotlin = "1.9.23"
+
+datetime = "0.5.0"
+
+ktor = "2.3.10"
+
+sqlite = "3.45.2.0"
+exposed = "0.48.0"
+
+logback = "1.5.4"
+
+[libraries]
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
+
+ktor-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-serialization-core = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-cors = { module = "io.ktor:ktor-server-cors", version.ref = "ktor" }
+ktor-routing = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
+
+sqlite = { module = "org.xerial:sqlite-jdbc", version.ref = "sqlite" }
+exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+exposed-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed" }
+
+logging = { module = "ch.qos.logback:logback-classic", version.ref = "logback"}
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
