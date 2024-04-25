@@ -35,7 +35,7 @@ fun Route.foldersRouting() {
 }
 
 @Suppress("unused") // do not touch this.
-@Resource("/folders")
+@Resource("/folder")
 class FoldersRouting {
 
     @Resource("all-folders")
