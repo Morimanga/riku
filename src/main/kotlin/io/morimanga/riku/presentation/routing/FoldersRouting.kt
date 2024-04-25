@@ -4,7 +4,7 @@ import io.ktor.resources.*
 import io.ktor.server.application.*
 import io.ktor.server.resources.*
 import io.ktor.server.routing.*
-import io.ktor.server.routing.post
+import io.ktor.server.resources.post
 import io.morimanga.riku.presentation.controller.FoldersController
 import kotlinx.serialization.SerialName
 
@@ -35,7 +35,7 @@ fun Route.foldersRouting() {
 }
 
 @Suppress("unused") // do not touch this.
-@Resource("/folder")
+@Resource("/folders")
 class FoldersRouting {
 
     @Resource("all-folders")

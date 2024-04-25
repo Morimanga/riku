@@ -4,7 +4,6 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.morimanga.riku.data.repository.AddonsRepositoryImpl
 import io.morimanga.riku.presentation.model.eddons.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 
@@ -93,7 +92,11 @@ class AddonsController(private val call: ApplicationCall) {
 
     suspend fun getTitleChapterById(addonId: Int, chapterId: Int, remoteTitleId: String) = coroutineScope {
         val data = async { repository.getTitleChapterImages(addonId, chapterId, remoteTitleId) }.await()
-        call.respond(data)
+        val buffer = ChapterImagesModel(
+            images = data,
+            allPages = data.size
+        )
+        call.respond(buffer)
     }
 
 }

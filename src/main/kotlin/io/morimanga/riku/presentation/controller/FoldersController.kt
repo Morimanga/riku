@@ -8,7 +8,6 @@ import io.morimanga.riku.domain.model.Comics
 import io.morimanga.riku.domain.model.FolderInfo
 import io.morimanga.riku.presentation.model.folders.ComicsFolderModel
 import io.morimanga.riku.presentation.model.folders.FolderModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
