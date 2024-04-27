@@ -13,6 +13,10 @@ import kotlinx.coroutines.withContext
 class AddonsRepositoryImpl : AddonsRepository {
     private val source = AddonsSource()
 
+    override suspend fun getAllGenres(addonId: Int): List<String> {
+        return source.getAllGenres(addonId)
+    }
+
     override suspend fun getTitleInfo(remoteTitleId: String, addonId: Int): ComicsInfo {
         val data = source.getTitleInfo(addonId, remoteTitleId)
         return comicsInfoMapToDomain(data)

@@ -10,6 +10,11 @@ import kotlinx.coroutines.coroutineScope
 class AddonsController(private val call: ApplicationCall) {
     private val repository = AddonsRepositoryImpl()
 
+    suspend fun getGenres(addonId: Int) = coroutineScope {
+        val genres = async { repository.getAllGenres(addonId) }.await()
+        call.respond(genres)
+    }
+
     suspend fun getAllAddons() = coroutineScope {
         val data = async { repository.getAllAddons() }.await()
             .map {

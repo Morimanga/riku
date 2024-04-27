@@ -5,6 +5,7 @@ import io.morimanga.riku.domain.model.ComicsInfo
 import io.morimanga.riku.domain.model.ComicsList
 
 interface AddonsRepository {
+    suspend fun getAllGenres(addonId: Int): List<String>
     suspend fun getTitleInfo(remoteTitleId: String, addonId: Int): ComicsInfo
     suspend fun getLatestTitles(addonId: Int, page: Int): ComicsList
     suspend fun getTitleChapterImages(addonId: Int, chapterId: Int, remoteTitleId: String): List<String>
@@ -18,4 +19,5 @@ interface AddonsRepository {
     ): ComicsList
 
     fun getAllAddons(): List<Addon>
+
 }
