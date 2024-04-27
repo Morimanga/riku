@@ -18,15 +18,9 @@ Current project version: 1.0-ALPHA
 
 
 3. Run:
+   
+TODO: Add run commands
 
-If your system MacOS/linux: 
-```
-{path_to_project}/riku/gradlew.bat build && {path_to_project}/riku/gradlew.bat run
-```
-
-If your system Windows:
-```
-{path_to_project}/riku/gradlew build && {path_to_project}/riku/gradlew run
 ```
 4. Server will run on localhost:8080
 
