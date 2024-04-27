@@ -38,4 +38,8 @@ class AddonsSource {
         val sortBy = if (sort) OrderType.ASCENDING else OrderType.DESCENDING
         return allExtensions[addonId].instance.search(page, sortBy, name, genres, years)
     }
+
+    suspend fun getAllGenres(addonId: Int): List<String> {
+        return allExtensions[addonId].instance.getGenres()
+    }
 }

@@ -11,6 +11,9 @@ fun Route.addonsRouting() {
     get<AddonsRouting.GetAllAddons> {
         AddonsController(call).getAllAddons()
     }
+    get<AddonsRouting.GetGenres> {
+        AddonsController(call).getGenres(it.addonId)
+    }
     get<AddonsRouting.GetComics> {
         AddonsController(call).getTitleById(it.remoteId, it.addonId)
     }
@@ -31,6 +34,9 @@ class AddonsRouting {
 
     @Resource("get-all-addons")
     class GetAllAddons(val parent: AddonsRouting = AddonsRouting())
+
+    @Resource("get-genres")
+    class GetGenres(val parent: AddonsRouting = AddonsRouting(), @SerialName("addon_id") val addonId: Int)
 
     @Resource("get-comics")
     class GetComics(

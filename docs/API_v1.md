@@ -6,6 +6,12 @@ Description: None
 
 Query params: None
 
+**GET** addons/get-genres
+
+Description: None
+
+Query params (all required): addon_id - Int 
+
 **GET** addons/get-comics
 
 Description: None
