@@ -5,7 +5,7 @@
 </p>
 
 ---
-Current API version: 1.0.0
+Current API version: 1.0.1
 
 Current project version: 1.0-ALPHA
 
