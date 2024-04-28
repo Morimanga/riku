@@ -1,6 +1,5 @@
 .gradle
 .idea
 build
-gradle/wrapper/gradle-wrapper.jar
 extensions
 riku_data.db
