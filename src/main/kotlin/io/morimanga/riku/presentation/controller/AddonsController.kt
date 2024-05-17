@@ -2,13 +2,13 @@ package io.morimanga.riku.presentation.controller
 
 import io.ktor.server.application.*
 import io.ktor.server.response.*
-import io.morimanga.riku.data.repository.AddonsRepositoryImpl
+import io.morimanga.riku.data.service.DefaultAddonsService
 import io.morimanga.riku.presentation.model.eddons.*
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 
 class AddonsController(private val call: ApplicationCall) {
-    private val repository = AddonsRepositoryImpl()
+    private val repository = DefaultAddonsService()
 
     suspend fun getGenres(addonId: Int) = coroutineScope {
         val genres = async { repository.getAllGenres(addonId) }.await()

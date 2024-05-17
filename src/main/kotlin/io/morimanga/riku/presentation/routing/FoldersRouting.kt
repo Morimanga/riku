@@ -42,7 +42,7 @@ class FoldersRouting {
     class AllFolders(val parent: FoldersRouting = FoldersRouting())
 
     @Resource("get-by-id")
-    class GetFolderComics(val parent: FoldersRouting = FoldersRouting(), val id: Int)
+    class GetFolderComics(val parent: FoldersRouting = FoldersRouting(), @SerialName("folder_id") val id: Int)
 
     @Resource("edit-comics")
     class EditComics(val parent: FoldersRouting = FoldersRouting(), @SerialName("folder_id") val folderId: Int)
@@ -54,5 +54,5 @@ class FoldersRouting {
     class EditFolder(val parent: FoldersRouting = FoldersRouting())
 
     @Resource("delete-folder")
-    class DeleteFolder(val parent: FoldersRouting = FoldersRouting(), val id: Int)
+    class DeleteFolder(val parent: FoldersRouting = FoldersRouting(), @SerialName("folder_id") val id: Int)
 }

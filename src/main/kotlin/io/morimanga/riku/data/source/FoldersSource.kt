@@ -18,13 +18,11 @@ class FoldersSource {
         return data
     }
 
-    // Rewrite this
-    suspend fun editFolder(folder: Folder) {
-        val buffer = if (folder.id == 0) null else folder.id
+    suspend fun editFolder(folderId: Int?, folderName: String) {
         dbQuery {
             FoldersTable.upsert { table ->
-                buffer?.let { table[id] = buffer }
-                table[name] = folder.name
+                folderId?.let { table[id] = it }
+                table[name] = folderName
             }
         }
     }
@@ -48,25 +46,19 @@ class FoldersSource {
         return data
     }
 
-    // Rewrite this
-    suspend fun editComics(folderId: Int, comics: LocalComicsInfo) {
-        val buffer = if (comics.localId == 0) null else  comics.localId
-
+    suspend fun editComics(folderId: Int?, comics: LocalComicsInfo) {
         dbQuery {
             ComicsTable.upsert { table ->
-                // If null, just add. Else
-                buffer?.let { localId ->
-                    table[id] = localId
-                }
+                folderId?.let { table[id] = folderId }
                 table[remoteId] = comics.remoteId
                 table[addonId] = comics.addonId
                 table[name] = comics.name
                 table[poster] = comics.poster
                 table[lastReadChapter] = comics.lastReadChapter
             }
-            ComicsFoldersTable.upsert {
-                it[comicsLocalId] = comics.localId
-                it[foldersLocalId] = folderId
+            ComicsFoldersTable.upsert {table ->
+                table[comicsLocalId] = comics.localId
+                folderId?.let { id -> table[foldersLocalId] = id }
             }
         }
     }

@@ -1,4 +1,4 @@
-package io.morimanga.riku.data.repository
+package io.morimanga.riku.data.service
 
 import io.morimanga.riku.data.map.addonMapToDomain
 import io.morimanga.riku.data.map.comicsInfoMapToDomain
@@ -7,10 +7,9 @@ import io.morimanga.riku.data.source.AddonsSource
 import io.morimanga.riku.domain.model.Addon
 import io.morimanga.riku.domain.model.ComicsInfo
 import io.morimanga.riku.domain.model.ComicsList
-import io.morimanga.riku.domain.repository.AddonsRepository
-import kotlinx.coroutines.withContext
+import io.morimanga.riku.domain.service.AddonsService
 
-class AddonsRepositoryImpl : AddonsRepository {
+class DefaultAddonsService : AddonsService {
     private val source = AddonsSource()
 
     override suspend fun getAllGenres(addonId: Int): List<String> {

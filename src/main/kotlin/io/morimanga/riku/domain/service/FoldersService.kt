@@ -1,9 +1,9 @@
-package io.morimanga.riku.domain.repository
+package io.morimanga.riku.domain.service
 
 import io.morimanga.riku.domain.model.Comics
 import io.morimanga.riku.domain.model.FolderInfo
 
-interface FoldersRepository {
+interface FoldersService {
     suspend fun getAllFolders(): List<FolderInfo>
     suspend fun editFolder(folder: FolderInfo)
     suspend fun deleteFolder(folderId: Int)

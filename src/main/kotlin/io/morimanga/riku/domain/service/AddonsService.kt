@@ -1,10 +1,10 @@
-package io.morimanga.riku.domain.repository
+package io.morimanga.riku.domain.service
 
 import io.morimanga.riku.domain.model.Addon
 import io.morimanga.riku.domain.model.ComicsInfo
 import io.morimanga.riku.domain.model.ComicsList
 
-interface AddonsRepository {
+interface AddonsService {
     suspend fun getAllGenres(addonId: Int): List<String>
     suspend fun getTitleInfo(remoteTitleId: String, addonId: Int): ComicsInfo
     suspend fun getLatestTitles(addonId: Int, page: Int): ComicsList

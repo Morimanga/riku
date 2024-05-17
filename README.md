@@ -5,11 +5,6 @@
 </p>
 
 ---
-Current API version: 1.0.1
-
-Current project version: 1.0-ALPHA
-
----
 ### How to use:
 1. Download:
 - [**extensions**](https://github.com/Morimanga/extensions)
@@ -17,7 +12,7 @@ Current project version: 1.0-ALPHA
 ```<path_to_project>/riku/extensions```
 
 
-3. Run: TODO
+3. Run: cd /path/to/morimanga && chmod +x ./gradlew && ./gradlew build && ./gradlew run
   
 4. Server will run on localhost:8080
 

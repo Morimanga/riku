@@ -3,7 +3,7 @@ package io.morimanga.riku.presentation.controller
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
-import io.morimanga.riku.data.repository.FoldersRepositoryImpl
+import io.morimanga.riku.data.service.DefaultFolderService
 import io.morimanga.riku.domain.model.Comics
 import io.morimanga.riku.domain.model.FolderInfo
 import io.morimanga.riku.presentation.model.folders.ComicsFolderModel
@@ -13,7 +13,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 class FoldersController(private val call: ApplicationCall) {
-    private val repository = FoldersRepositoryImpl()
+    private val repository = DefaultFolderService()
 
     suspend fun getFolders() = coroutineScope {
         val data = async { repository.getAllFolders() }.await()

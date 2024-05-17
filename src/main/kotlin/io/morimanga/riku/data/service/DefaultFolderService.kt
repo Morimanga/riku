@@ -1,15 +1,14 @@
-package io.morimanga.riku.data.repository
+package io.morimanga.riku.data.service
 
 import io.morimanga.riku.data.map.comicsMapToData
 import io.morimanga.riku.data.map.comicsMapToDomain
-import io.morimanga.riku.data.map.folderInfoMapToData
 import io.morimanga.riku.data.map.folderInfoMapToDomain
 import io.morimanga.riku.data.source.FoldersSource
 import io.morimanga.riku.domain.model.Comics
 import io.morimanga.riku.domain.model.FolderInfo
-import io.morimanga.riku.domain.repository.FoldersRepository
+import io.morimanga.riku.domain.service.FoldersService
 
-class FoldersRepositoryImpl : FoldersRepository {
+class DefaultFolderService : FoldersService {
     private val source = FoldersSource()
 
     override suspend fun getAllFolders(): List<FolderInfo> {
@@ -18,8 +17,10 @@ class FoldersRepositoryImpl : FoldersRepository {
     }
 
     override suspend fun editFolder(folder: FolderInfo) {
+        val id = if (folder.id == 0) null else folder.id
         source.editFolder(
-            folderInfoMapToData(folder)
+            id,
+            folder.name
         )
     }
 

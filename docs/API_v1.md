@@ -51,7 +51,7 @@ Query params: None
 
 Description: None
 
-Query params: id - Int
+Query params (all required): folder_id - Int
 
 **POST** folder/edit-comics
 
@@ -98,4 +98,4 @@ Body:
 
 Description: None
 
-Query params (all required): id - Integer
+Query params (all required): folder_id - Integer
